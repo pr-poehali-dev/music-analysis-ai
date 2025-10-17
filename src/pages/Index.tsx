@@ -126,18 +126,9 @@ const Index = () => {
             {results.map((result, index) => (
               <Card 
                 key={result.id} 
-                className="hover:border-primary/40 transition-all hover:shadow-lg hover:shadow-primary/10 overflow-hidden"
+                className="hover:border-primary/40 transition-all hover:shadow-lg hover:shadow-primary/10 cursor-pointer"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {result.image && (
-                  <div className="w-full h-64 overflow-hidden bg-muted">
-                    <img 
-                      src={result.image} 
-                      alt={result.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                )}
                 <CardHeader>
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
@@ -159,7 +150,13 @@ const Index = () => {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{result.description}</p>
+                  <p className="text-muted-foreground mb-4">{result.description}</p>
+                  <Button variant="default" className="w-full sm:w-auto" asChild>
+                    <a href={result.url} target="_blank" rel="noopener noreferrer">
+                      <Icon name="ExternalLink" size={16} className="mr-2" />
+                      Открыть разбор
+                    </a>
+                  </Button>
                 </CardContent>
               </Card>
             ))}
