@@ -1,0 +1,33 @@
+{
+  "tests": [
+    {
+      "name": "Search for music tutorial",
+      "method": "POST",
+      "body": {
+        "query": "Nothing Else Matters"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "results": "array"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Handle OPTIONS request",
+      "method": "OPTIONS",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Reject empty query",
+      "method": "POST",
+      "body": {
+        "query": ""
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
