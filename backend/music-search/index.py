@@ -89,11 +89,11 @@ def search_music_tutorials(query: str) -> List[Dict[str, Any]]:
 
 def generate_mock_results(query: str, search_term: str) -> List[Dict[str, Any]]:
     sources = [
-        {'name': 'YouTube', 'type': 'Видео', 'base_rating': 9.0},
-        {'name': 'Ultimate Guitar', 'type': 'Табы', 'base_rating': 8.5},
-        {'name': 'MusicTheory.net', 'type': 'Текст', 'base_rating': 8.8},
-        {'name': 'Songsterr', 'type': 'Табы', 'base_rating': 8.3},
-        {'name': 'Guitar Lessons', 'type': 'Видео', 'base_rating': 8.7}
+        {'name': 'YouTube', 'type': 'Видео', 'base_rating': 9.0, 'image': 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800'},
+        {'name': 'Ultimate Guitar', 'type': 'Табы', 'base_rating': 8.5, 'image': 'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?w=800'},
+        {'name': 'MusicTheory.net', 'type': 'Текст', 'base_rating': 8.8, 'image': 'https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=800'},
+        {'name': 'Songsterr', 'type': 'Табы', 'base_rating': 8.3, 'image': 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?w=800'},
+        {'name': 'Guitar Lessons', 'type': 'Видео', 'base_rating': 8.7, 'image': 'https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=800'}
     ]
     
     results = []
@@ -105,7 +105,8 @@ def generate_mock_results(query: str, search_term: str) -> List[Dict[str, Any]]:
             'url': f"https://example.com/{quote_plus(query)}/{i}",
             'rating': round(source['base_rating'] + (hash(search_term) % 10) / 10, 1),
             'description': f"Детальный {source['type'].lower()} урок с пошаговыми объяснениями",
-            'type': source['type']
+            'type': source['type'],
+            'image': source['image']
         }
         results.append(result)
     
