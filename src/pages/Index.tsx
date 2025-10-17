@@ -52,7 +52,7 @@ const Index = () => {
           <div className="flex items-center justify-center gap-3 mb-4">
             <Icon name="Music" size={40} className="text-primary" />
             <h1 className="text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              MusicFind
+              ReSound
             </h1>
           </div>
           <p className="text-xl text-muted-foreground">
